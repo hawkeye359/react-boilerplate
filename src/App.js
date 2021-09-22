@@ -1,16 +1,46 @@
+import { StrictMode, useState } from "react";
 import ReactDOM from "react-dom";
-import Pet from "./Pet";
+// import * as Sentry from "@sentry/react";
+// import { Integrations } from "@sentry/tracing";
+import ThemeContext from "./ThemeContext";
+import Details from "./Details";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import SearchParams from "./SearchParams";
+// Sentry.init({
+//   dsn:
+//     "https://6893a9fd96404de4b38fa1516ad1a234@o1009184.ingest.sentry.io/5973209",
+//   integrations: [new Integrations.BrowserTracing()],
 
-
-
+//   // Set tracesSampleRate to 1.0 to capture 100%
+//   // of transactions for performance monitoring.
+//   // We recommend adjusting this value in production
+//   tracesSampleRate: 1.0,
+// });
 const App = () => {
+  const theme = useState("blue");
   return (
-    <div>
-      <h1> Adopt Me !</h1>
-      <Pet name="luna" animal="dog" breed="havanese" />
-      <Pet name="pepper" animal="bird" breed="cockatiel" />
-      <Pet name="Beam" animal="dog" breed="wheaten tarrier" />
-    </div>
+    <ThemeContext.Provider value={theme}>
+      <div>
+        <Router>
+          <header>
+            <Link to="/">Adopt Me!</Link>
+          </header>
+          <Switch>
+            <Route path="/details/:id">
+              <Details />
+            </Route>
+            <Route path="/">
+              <SearchParams />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </ThemeContext.Provider>
   );
 };
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById("root")
+);

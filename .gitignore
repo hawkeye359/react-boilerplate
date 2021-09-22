@@ -6,4 +6,4 @@ coverage/
 .DS_Store/
 .vscode/
 .parcel-cache/
-*.log/
+*.log
