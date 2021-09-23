@@ -3,8 +3,9 @@ import { withRouter } from "react-router-dom"; //eslint-disable-line import/name
 import ErrorBoundary from "./ErrorBoundary";
 import Carousel from "./Carousel";
 import ThemeContext from "./ThemeContext";
+import Modal from "./Modal";
 class Details extends Component {
-  state = { loading: true };
+  state = { loading: true, showModal: false };
 
   async componentDidMount() {
     const res = await fetch(
@@ -21,6 +22,13 @@ class Details extends Component {
       )
     );
   }
+  adopt = () => {
+    window.location = "http://bit.ly/pet-adopt";
+  };
+
+  toggle = () => {
+    this.setState({ showModal: this.state.showModal ? false : true });
+  };
   render() {
     const {
       animal,
@@ -30,6 +38,7 @@ class Details extends Component {
       state,
       description,
       name,
+      showModal,
     } = this.state;
     if (this.state.loading) {
       return <h2>loading __-</h2>;
@@ -42,11 +51,27 @@ class Details extends Component {
           <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
           <ThemeContext.Consumer>
             {([theme]) => (
-              <button style={{ backgroundColor: theme }}>Adopt {name}</button>
+              <button
+                style={{ backgroundColor: theme }}
+                onClick={() => {
+                  console.log("nothingg");
+                  this.toggle();
+                }}
+              >
+                Adopt {name}
+              </button>
             )}
           </ThemeContext.Consumer>
 
           <p>{description}</p>
+          {showModal ? (
+            <Modal>
+              <h2>do you really wanna adopt that pet</h2>
+              <div className="buttons"></div>
+              <button onClick={this.adopt}>yes</button>
+              <button onClick={this.toggle}>no</button>
+            </Modal>
+          ) : null}
         </div>
       </div>
     );

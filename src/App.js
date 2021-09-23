@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 // import { Integrations } from "@sentry/tracing";
 import ThemeContext from "./ThemeContext";
 import Details from "./Details";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"; //eslint-disable-line import/named, import/namespace
 import SearchParams from "./SearchParams";
 // Sentry.init({
 //   dsn:
