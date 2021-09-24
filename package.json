@@ -15,8 +15,7 @@
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-react-hooks": "4.2.0",
-    "prettier": "2.2.1",
-    "@tailwindcss/forms": "0.2.1"
+    "prettier": "2.2.1"
   },
   "scripts": {
     "format": "prettier --write .",
@@ -28,6 +27,7 @@
     "@petfinder/petfinder-js": "^1.0.6",
     "@sentry/react": "^6.13.2",
     "@sentry/tracing": "^6.13.2",
+    "@tailwindcss/forms": "0.2.1",
     "@tailwindcss/postcss7-compat": "2.0.3",
     "autoprefixer": "9.8.6",
     "parcel": "1.12.3",
