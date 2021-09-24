@@ -20,9 +20,14 @@ const App = () => {
   const theme = useState("blue");
   return (
     <ThemeContext.Provider value={theme}>
-      <div>
+      <div
+        className="p-0 m-0"
+        style={{
+          background: "#E0FBFC",
+        }}
+      >
         <Router>
-          <header>
+          <header className="w-full mb-10 bg-gray-700 text-center p-7">
             <Link to="/">Adopt Me!</Link>
           </header>
           <Switch>
