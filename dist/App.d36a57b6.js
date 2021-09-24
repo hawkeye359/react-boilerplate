@@ -37219,41 +37219,71 @@ const Pet = ({
 
   return (
     /*#__PURE__*/
-    (0, _jsxRuntime.jsxs)("div", {
-      children: [
+    (0, _jsxRuntime.jsx)("div", {
+      children:
       /*#__PURE__*/
-      (0, _jsxRuntime.jsxs)(_reactRouterDom.Link, {
+      (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
         to: `/details/${id}`,
         className: "pet",
-        children: [
+        children:
         /*#__PURE__*/
-        (0, _jsxRuntime.jsx)("div", {
-          className: "image-container",
-          children:
-          /*#__PURE__*/
-          (0, _jsxRuntime.jsx)("img", {
-            src: hero,
-            alt: name
-          })
-        }),
-        /*#__PURE__*/
-        (0, _jsxRuntime.jsxs)("div", {
-          className: "info",
+        (0, _jsxRuntime.jsxs)("article", {
+          className: "bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200 h-full",
           children: [
           /*#__PURE__*/
-          (0, _jsxRuntime.jsx)("h1", {
-            children: name
+          (0, _jsxRuntime.jsx)("div", {
+            className: "relative w-full h-80 md:h-64 lg:h-44",
+            children:
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsx)("img", {
+              src: hero,
+              alt: name,
+              className: "w-full h-full object-center object-cover"
+            })
           }),
           /*#__PURE__*/
-          (0, _jsxRuntime.jsx)("h2", {
-            children: `${animal} — ${breed.primary} — ${location}`
+          (0, _jsxRuntime.jsxs)("div", {
+            className: "px-3 py-4",
+            children: [
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsx)("h3", {
+              className: "text-sm text-gray-500 pb-2",
+              children:
+              /*#__PURE__*/
+              (0, _jsxRuntime.jsxs)("button", {
+                className: "bg-indigo-600 py-1 px-2 text-white rounded-lg",
+                href: "#",
+                children: [
+                /*#__PURE__*/
+                (0, _jsxRuntime.jsx)("span", {
+                  className: "absolute inset-0"
+                }), animal]
+              })
+            }),
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsxs)("h2", {
+              children: ["Name - ", name]
+            }),
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsxs)("h2", {
+              children: ["Breed- ", breed.primary]
+            }),
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsx)("p", {
+              className: "text-base font-semibold text-gray-900 group-hover:text-indigo-600",
+              children: description
+            }),
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsx)("h1", {
+              children: name
+            }),
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsxs)("h2", {
+              children: ["Location- ", location]
+            })]
           })]
-        })]
-      }),
-      /*#__PURE__*/
-      (0, _jsxRuntime.jsx)("p", {
-        children: description
-      })]
+        })
+      })
     })
   );
 };
@@ -37279,25 +37309,39 @@ function Results({
 }) {
   return (
     /*#__PURE__*/
-    (0, _jsxRuntime.jsx)("div", {
-      className: "search",
-      children: !pets.length ?
+    (0, _jsxRuntime.jsx)("section", {
+      className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 mt-12 mb-12",
+      children:
       /*#__PURE__*/
-      (0, _jsxRuntime.jsx)("h2", {
-        children: "no pets found"
-      }) : pets.map(pet => {
-        return (
+      (0, _jsxRuntime.jsxs)("article", {
+        children: [
+        /*#__PURE__*/
+        (0, _jsxRuntime.jsx)("h2", {
+          className: "text-5xl text-center font-extrabold text-gray-900",
+          children: "Results"
+        }),
+        /*#__PURE__*/
+        (0, _jsxRuntime.jsx)("section", {
+          className: "mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8",
+          children: !pets.length ?
           /*#__PURE__*/
-          (0, _jsxRuntime.jsx)(_Pet.default, {
-            name: pet.name,
-            animal: pet.type,
-            breed: pet.breeds,
-            id: pet.id,
-            description: pet.description,
-            location: `${pet.contact.address.city} - ${pet.contact.address.state}`,
-            images: pet.photos
-          }, pet.id)
-        );
+          (0, _jsxRuntime.jsx)("h2", {
+            children: "no pets found"
+          }) : pets.map(pet => {
+            return (
+              /*#__PURE__*/
+              (0, _jsxRuntime.jsx)(_Pet.default, {
+                name: pet.name,
+                animal: pet.type,
+                breed: pet.breeds,
+                id: pet.id,
+                description: pet.description,
+                location: `${pet.contact.address.city}, ${pet.contact.address.state}`,
+                images: pet.photos
+              }, pet.id)
+            );
+          })
+        })]
       })
     })
   );
@@ -37485,154 +37529,174 @@ function SearchParams() {
     };
     const response = await _petFinder.default.animal.search(query);
     setPets(response.data.animals);
+    console.log(response);
   }
 
   return (
     /*#__PURE__*/
     (0, _jsxRuntime.jsxs)("div", {
-      className: "search-params",
+      className: "",
       children: [
       /*#__PURE__*/
-      (0, _jsxRuntime.jsxs)("form", {
-        onSubmit: e => {
-          e.preventDefault();
-          fetchAnimals();
-        },
-        children: [
+      (0, _jsxRuntime.jsx)("div", {
+        className: "flex flex-col w-full m-auto relative h-screen",
+        children:
         /*#__PURE__*/
-        (0, _jsxRuntime.jsxs)("label", {
-          htmlFor: "location",
-          children: ["Location",
-          /*#__PURE__*/
-          (0, _jsxRuntime.jsx)("select", {
-            id: "input",
-            value: location,
-            onChange: e => {
-              setLocation(e.target.value);
-            },
-            onBlur: e => {
-              setLocation(e.target.value);
-            },
-            children: _states.default.map(e => {
-              return (
-                /*#__PURE__*/
-                (0, _jsxRuntime.jsx)("option", {
-                  value: e,
-                  children: e
-                }, e)
-              );
-            })
-          })]
-        }),
-        /*#__PURE__*/
-        (0, _jsxRuntime.jsxs)("label", {
-          htmlFor: "city",
-          children: ["City",
-          /*#__PURE__*/
-          (0, _jsxRuntime.jsxs)("select", {
-            id: "city",
-            value: city,
-            onChange: e => {
-              setCity(e.target.value);
-            },
-            onBlur: e => {
-              setCity(e.target.value);
-            },
-            children: [
-            /*#__PURE__*/
-            (0, _jsxRuntime.jsx)("option", {}), cities.map(e => {
-              return (
-                /*#__PURE__*/
-                (0, _jsxRuntime.jsx)("option", {
-                  value: e,
-                  children: e
-                }, e)
-              );
-            })]
-          })]
-        }),
-        /*#__PURE__*/
-        (0, _jsxRuntime.jsxs)("label", {
-          htmlFor: "animal",
-          children: ["animal",
-          /*#__PURE__*/
-          (0, _jsxRuntime.jsxs)("select", {
-            id: "animal",
-            value: animal,
-            onChange: e => {
-              setBreed("");
-              setAnimal(e.target.value);
-            },
-            onBlur: e => {
-              setAnimal(e.target.value);
-            },
-            children: [
-            /*#__PURE__*/
-            (0, _jsxRuntime.jsx)("option", {}), ANIMALS.map(animal => {
-              return (
-                /*#__PURE__*/
-                (0, _jsxRuntime.jsx)("option", {
-                  value: animal,
-                  children: animal
-                }, animal)
-              );
-            })]
-          })]
-        }),
-        /*#__PURE__*/
-        (0, _jsxRuntime.jsxs)("label", {
-          htmlFor: "breed",
-          children: ["breeds",
-          /*#__PURE__*/
-          (0, _jsxRuntime.jsxs)("select", {
-            id: "breed",
-            value: breed,
-            onChange: e => {
-              setBreed(e.target.value);
-            },
-            onBlur: e => {
-              setBreed(e.target.value);
-            },
-            children: [
-            /*#__PURE__*/
-            (0, _jsxRuntime.jsx)("option", {}), breeds.map(breed => {
-              return (
-                /*#__PURE__*/
-                (0, _jsxRuntime.jsx)("option", {
-                  value: breed.name,
-                  children: breed.name
-                }, breed.name)
-              );
-            })]
-          })]
-        }),
-        /*#__PURE__*/
-        (0, _jsxRuntime.jsx)("label", {
-          htmlFor: "theme",
-          children:
-          /*#__PURE__*/
-          (0, _jsxRuntime.jsx)("select", {
-            id: "theme",
-            onChange: e => setTheme(e.target.value),
-            onBlur: e => setTheme(e.target.value),
-            children: themes.map(color => {
-              return (
-                /*#__PURE__*/
-                (0, _jsxRuntime.jsx)("option", {
-                  value: color,
-                  children: color
-                }, color)
-              );
-            })
-          })
-        }),
-        /*#__PURE__*/
-        (0, _jsxRuntime.jsx)("button", {
-          style: {
-            backgroundColor: theme
+        (0, _jsxRuntime.jsxs)("form", {
+          className: "absolute m-auto transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 bg-red-500 rounded-xl p-10",
+          onSubmit: e => {
+            e.preventDefault();
+            fetchAnimals();
           },
-          children: "Submit"
-        })]
+          children: [
+          /*#__PURE__*/
+          (0, _jsxRuntime.jsxs)("label", {
+            className: "text-lg font-bold text-gray-800",
+            htmlFor: "location",
+            children: ["Location",
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsx)("select", {
+              className: "w-96 block my-2 rounded-full",
+              id: "input",
+              value: location,
+              onChange: e => {
+                setLocation(e.target.value);
+              },
+              onBlur: e => {
+                setLocation(e.target.value);
+              },
+              children: _states.default.map(e => {
+                return (
+                  /*#__PURE__*/
+                  (0, _jsxRuntime.jsx)("option", {
+                    value: e,
+                    children: e
+                  }, e)
+                );
+              })
+            })]
+          }),
+          /*#__PURE__*/
+          (0, _jsxRuntime.jsxs)("label", {
+            className: "text-lg font-bold text-gray-800",
+            htmlFor: "city",
+            children: ["City",
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsxs)("select", {
+              className: "w-96 block my-2 rounded-full",
+              id: "city",
+              value: city,
+              onChange: e => {
+                setCity(e.target.value);
+              },
+              onBlur: e => {
+                setCity(e.target.value);
+              },
+              children: [
+              /*#__PURE__*/
+              (0, _jsxRuntime.jsx)("option", {}), cities.map(e => {
+                return (
+                  /*#__PURE__*/
+                  (0, _jsxRuntime.jsx)("option", {
+                    value: e,
+                    children: e
+                  }, e)
+                );
+              })]
+            })]
+          }),
+          /*#__PURE__*/
+          (0, _jsxRuntime.jsxs)("label", {
+            className: "text-lg font-bold text-gray-800",
+            htmlFor: "animal",
+            children: ["Animal",
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsxs)("select", {
+              className: "w-96 block my-2 rounded-full",
+              id: "animal",
+              value: animal,
+              onChange: e => {
+                setBreed("");
+                setAnimal(e.target.value);
+              },
+              onBlur: e => {
+                setAnimal(e.target.value);
+              },
+              children: [
+              /*#__PURE__*/
+              (0, _jsxRuntime.jsx)("option", {}), ANIMALS.map(animal => {
+                return (
+                  /*#__PURE__*/
+                  (0, _jsxRuntime.jsx)("option", {
+                    value: animal,
+                    children: animal
+                  }, animal)
+                );
+              })]
+            })]
+          }),
+          /*#__PURE__*/
+          (0, _jsxRuntime.jsxs)("label", {
+            className: "text-lg font-bold text-gray-800",
+            htmlFor: "breed",
+            children: ["Breeds",
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsxs)("select", {
+              className: "w-96 block my-2 rounded-full disabled:opacity-50",
+              id: "breed",
+              value: breed,
+              onChange: e => {
+                setBreed(e.target.value);
+              },
+              onBlur: e => {
+                setBreed(e.target.value);
+              },
+              children: [
+              /*#__PURE__*/
+              (0, _jsxRuntime.jsx)("option", {}), breeds.map(breed => {
+                return (
+                  /*#__PURE__*/
+                  (0, _jsxRuntime.jsx)("option", {
+                    value: breed.name,
+                    children: breed.name
+                  }, breed.name)
+                );
+              })]
+            })]
+          }),
+          /*#__PURE__*/
+          (0, _jsxRuntime.jsxs)("label", {
+            className: "text-lg font-bold text-gray-800",
+            htmlFor: "theme",
+            children: ["App Theme",
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsx)("select", {
+              className: "w-96 block my-2 rounded-full",
+              id: "theme",
+              onChange: e => setTheme(e.target.value),
+              onBlur: e => setTheme(e.target.value),
+              children: themes.map(color => {
+                return (
+                  /*#__PURE__*/
+                  (0, _jsxRuntime.jsx)("option", {
+                    value: color,
+                    children: color
+                  }, color)
+                );
+              })
+            })]
+          }),
+          /*#__PURE__*/
+          (0, _jsxRuntime.jsx)("div", {
+            className: "w-full mt-8",
+            children:
+            /*#__PURE__*/
+            (0, _jsxRuntime.jsx)("button", {
+              className: "w-52 h-10 rounded-full m-auto bg-gray-800 text-white",
+              children: "Submit"
+            })
+          })]
+        })
       }),
       /*#__PURE__*/
       (0, _jsxRuntime.jsx)(_Results.default, {
@@ -37684,12 +37748,17 @@ const App = () => {
       children:
       /*#__PURE__*/
       (0, _jsxRuntime.jsx)("div", {
+        className: "p-0 m-0",
+        style: {
+          background: "#E0FBFC"
+        },
         children:
         /*#__PURE__*/
         (0, _jsxRuntime.jsxs)(_reactRouterDom.BrowserRouter, {
           children: [
           /*#__PURE__*/
           (0, _jsxRuntime.jsx)("header", {
+            className: "w-full mb-10 bg-gray-700 text-center p-7",
             children:
             /*#__PURE__*/
             (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
@@ -37756,7 +37825,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34259" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42411" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
