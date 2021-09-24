@@ -1,2 +1,0 @@
-/pets/* http://pets-v2.dev-apis.com/pets/:splat 200!
-/breeds/* http://pets-v2.dev-apis.com/breeds/:splat 200!

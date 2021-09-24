@@ -10,13 +10,13 @@ export default function Results({ pets }) {
           return (
             <Pet
               name={pet.name}
-              animal={pet.animal}
-              breed={pet.breed}
+              animal={pet.type}
+              breed={pet.breeds}
               key={pet.id}
               id={pet.id}
               description={pet.description}
-              location={`${pet.city} - ${pet.state}`}
-              images={pet.images}
+              location={`${pet.contact.address.city} - ${pet.contact.address.state}`}
+              images={pet.photos}
             />
           );
         })

@@ -1,8 +1,16 @@
-import { Link } from "react-router-dom";
-const Pet = ({ name, breed, animal, location, images, description, id }) => {
+import { Link } from "react-router-dom"; //eslint-disable-line import/named, import/namespace
+const Pet = ({
+  name = "null",
+  breed = "null",
+  animal = "null",
+  location = "null",
+  images,
+  description = "null",
+  id = "null",
+}) => {
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
   if (images.length) {
-    hero = images[0];
+    hero = images[0].small;
   }
   return (
     <div>
@@ -12,10 +20,10 @@ const Pet = ({ name, breed, animal, location, images, description, id }) => {
         </div>
         <div className="info">
           <h1>{name}</h1>
-          <h2>{`${animal} — ${breed} — ${location}`}</h2>
-          <p>{`${description.slice(0, 50)}...`}</p>
+          <h2>{`${animal} — ${breed.primary} — ${location}`}</h2>
         </div>
       </Link>
+      <p>{description}</p>
     </div>
   );
 };

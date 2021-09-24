@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import client from "./petFinder";
 const localCache = {};
 
 const useBreedsList = function (animal) {
@@ -16,11 +16,8 @@ const useBreedsList = function (animal) {
     async function requestBreedList(animal) {
       setBreedList([]);
       setStatus("loading");
-      const res = await fetch(
-        `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
-      );
-      const json = await res.json();
-      localCache[animal] = json.breeds || [];
+      const response = await client.animalData.breeds(animal);
+      localCache[animal] = response.data.breeds || [];
       setBreedList(localCache[animal]);
       setStatus("loaded");
     }
