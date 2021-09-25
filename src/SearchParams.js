@@ -8,33 +8,15 @@ import client from "./petFinder";
 import states from "./states";
 import citiesFinder from "./cities";
 function SearchParams() {
-  const [location, setLocation] = useState("New York");
+  const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
   const [breeds] = useBreedsList(animal);
-  const [theme, setTheme] = useContext(ThemeContext);
+  const [theme, setTheme] = useContext(ThemeContext); //eslint-disable-line no-unused-vars
   const [page, setPage] = useState(1); //eslint-disable-line no-unused-vars
-  const [cities, setCities] = useState([
-    "New York",
-    "Buffalo",
-    "Rochester",
-    "Yonkers",
-    "Syracuse",
-    "Albany",
-    "New Rochelle",
-    "Mount Vernon",
-    "Schenectady",
-    "Utica",
-    "White Plains",
-    "Hempstead",
-    "Troy",
-    "Niagara Falls",
-    "Binghamton",
-    "Freeport",
-    "Valley Stream",
-  ]);
-  const [city, setCity] = useState("New York");
+  const [cities, setCities] = useState([]);
+  const [city, setCity] = useState("");
   useEffect(() => {
     fetchAnimals();
   }, []); //eslint-disable-line react-hooks/exhaustive-deps
@@ -79,6 +61,7 @@ function SearchParams() {
                 setLocation(e.target.value);
               }}
             >
+              <option value="" />
               {states.map((e) => {
                 return (
                   <option key={e} value={e}>
@@ -101,7 +84,7 @@ function SearchParams() {
                 setCity(e.target.value);
               }}
             >
-              <option />
+              <option value="" />
               {cities.map((e) => {
                 return (
                   <option key={e} value={e}>

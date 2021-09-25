@@ -8,7 +8,28 @@ const Pet = ({
   description = "null",
   id = "null",
 }) => {
-  let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
+  let hero;
+  console.log(animal.toLowerCase());
+  if (animal.toLowerCase() == "dog") {
+    hero =
+      "https://media.istockphoto.com/vectors/dog-logo-vector-id1153925640?k=20&m=1153925640&s=612x612&w=0&h=aFTvmLGa45YNCBkVAJ7RMNnoJZCLEVFCzzhGCBnMwNk=";
+  } else if (animal.toLowerCase() == "cat") {
+    hero =
+      "https://cdn1.vectorstock.com/i/1000x1000/92/00/cute-cat-face-icon-cartoon-cat-vector-32259200.jpg";
+  } else if (animal.toLowerCase() == "bird") {
+    hero =
+      "https://cdn.dribbble.com/users/1189944/screenshots/11037333/untitled-1_4x.png";
+  } else if (animal.toLowerCase() == "rabbit") {
+    hero =
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxm5zGBdxT4OKlasryBfyLk1flG9AVK8engINXR5-HFWCtvR_YzRC1V69IfWYBLMUqxZ8&usqp=CAU";
+  } else if (animal.toLowerCase() == "barnyard") {
+    hero =
+      "https://previews.123rf.com/images/dollygrey/dollygrey1811/dollygrey181100150/115411800-cute-pig-illustration.jpg";
+  } else if (animal.toLowerCase() == "horse") {
+    hero =
+      "https://image.shutterstock.com/z/stock-vector-head-horse-illustration-vector-art-for-t-shirt-design-sticker-etc-1601803435.jpg";
+  }
+
   if (images.length) {
     hero = images[0].small;
   }
